@@ -5,12 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
+using System.Windows.Forms;
 
 namespace VibrationReporter
 {
     public class DocWorker
     {
         private FileInfo layoutfileInfo;
+        public static Dictionary<string, string> tags { get; private set; }
+        public void InitializeTags(Equipment.Equipment equipment)
+        {
+            tags = new Dictionary<string, string>()
+            {
+                {"<EQUIP_FULLNAME>", equipment.FullName()},
+                {"<DATE_YEAR>", DateTime.Now.ToString("yyyy")},
+                {"<DATE_FULL>", DateTime.Now.ToString("dd.MM.yyyy")},
+                {"<EQUIP_FREQ>", equipment.Frequency.ToString()},
+                {"<EQUIP_NAME>", equipment.Name},
+                {"<BLOCK_NUM>", equipment.BlockNum.ToString()},
+                {"<BOILER>", equipment.Boiler},
+                {"<ORDER>", equipment.Order.ToString()}
+            };
+
+            foreach (var el in equipment.values)
+            {
+                tags.Add($"{el.Key}", $"{el.Value}");
+            }
+        }
 
         public DocWorker(string layoutFileName)
         {
@@ -24,7 +45,7 @@ namespace VibrationReporter
             }
         }
 
-        public void InsertItems(Dictionary<string, string> items)
+        public void InsertItems()
         {
             Word.Application app = null;
             try
@@ -35,7 +56,7 @@ namespace VibrationReporter
 
                 app.Documents.Open(file);
 
-                foreach (var item in items)
+                foreach (var item in tags)
                 {
                     Word.Find find = app.Selection.Find;
                     find.Text = item.Key;

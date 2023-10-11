@@ -16,30 +16,6 @@ namespace VibrationReporter
         {
             InitializeComponent();
         }
-        private void InitializeTags(Equipment.Equipment equipment)
-        {
-            tags = new Dictionary<string, string>()
-            {
-                {"<EQUIP_FULLNAME>", equipment.FullName()},
-                {"<DATE_YEAR>", DateTime.Now.ToString("yyyy")},
-                {"<DATE_FULL>", DateTime.Now.ToString("dd.MM.yyyy")},
-                {"<EQUIP_FREQ>", equipment.Frequency.ToString()},
-                {"<EQUIP_NAME>", equipment.Name},
-                {"<BLOCK_NUM>", equipment.BlockNum.ToString()},
-                {"<BOILER>", equipment.Boiler},
-                {"<ORDER>", equipment.Order.ToString()}
-            };
-            foreach(var tb in groupBoxT1.Controls)
-            {
-                if(tb is TextBox)
-                {
-                   var tbContainer = (TextBox)tb;
-                    tags.Add($"<{tbContainer.Name}>", $"<{tbContainer.Name}>");
-                }
-            }
-        }
-        private Dictionary<string, string> tags;
-
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
             var target = (CheckBox)sender;
@@ -64,13 +40,14 @@ namespace VibrationReporter
             var equipment = Equipment.Equipment.InitWithType(
                 comboBoxEqType.SelectedIndex,
                 (int)numericBlock.Value,
-                checkBoxA.Checked ? "A" : checkBoxB.Checked ? "Б" : checkBoxC.Checked ? "В" : "А",
-                (int)numericOrder.Value
-                );
+                checkBoxA.Checked ? "A" : checkBoxB.Checked ? "Б" : checkBoxC.Checked ? "В" : String.Empty,
+                (int)numericOrder.Value);
 
-            InitializeTags(equipment);
+            equipment.InitValues(tableLayoutPanel1);
+
             DocWorker dw = new DocWorker(Settings.layoutFileName);
-            dw.InsertItems(tags);
+            dw.InitializeTags(equipment);
+            dw.InsertItems();
         }
 
         private void textBoxDouble_TextChanged(object sender, EventArgs e)

@@ -10,3 +10,4 @@ C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\Vib
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.pdb
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.FormMain.resources
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.ResolveComReference.cache
+C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\layout.docx
