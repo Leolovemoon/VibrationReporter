@@ -26,7 +26,17 @@ namespace VibrationReporter.Equipment
         {
             switch (id)
             {
-                case 0: return new Test(blockNum, boiler, order); break;
+                case 0: return new CondensatePump(blockNum, boiler, order);
+                case 1: return new HeatingPump(blockNum, boiler, order);
+                case 2: return new FeedPump(blockNum, boiler, order);
+                case 3: return new GasCoolingPump(blockNum, boiler, order);
+                case 4: return new StartingOilPump(blockNum, boiler, order);
+                case 5: return new WorkingOilPump(blockNum, boiler, order);
+                case 6: return new EmergencyOilPump(blockNum, boiler, order);
+                case 7: return new EmergencySealingOilPump(blockNum, boiler, order);
+                case 8: return new BoilerCondensatePump(blockNum, boiler, order);
+                case 9: return new HeatingNetworkPump(blockNum, boiler, order);
+                case 10: return new FirePump(blockNum, boiler, order);
                 default: return null;
             }
         }
@@ -34,7 +44,16 @@ namespace VibrationReporter.Equipment
         public virtual void InitValues(Control table1)
         {
             values = new Dictionary<string, string>();
-            foreach (var tb in table1.Controls)
+            AddValues(table1);
+        }
+        public virtual void InitValues(Control table1, Control table2)
+        {
+            InitValues(table1);
+            AddValues(table2);
+        }
+        protected void AddValues(Control table)
+        {
+            foreach (var tb in table.Controls)
             {
                 if (tb is TextBox)
                 {

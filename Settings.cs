@@ -8,6 +8,6 @@ namespace VibrationReporter
 {
     public static class Settings
     {
-        public static readonly string layoutFileName = "layout.docx";
+        public static string layoutFileName = "layout.docx";
     }
 }

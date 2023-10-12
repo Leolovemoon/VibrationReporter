@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="DocWorker.cs" />
     <Compile Include="Equipment\Equipment.cs" />
-    <Compile Include="Equipment\Test.cs" />
+    <Compile Include="Equipment\EquipList.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -37,17 +37,22 @@ namespace VibrationReporter
 
         private void buttonCreateDoc_Click(object sender, EventArgs e)
         {
+            var button = (Button)sender;
+            button.Text = "Идет генерация отчета...";
+
             var equipment = Equipment.Equipment.InitWithType(
                 comboBoxEqType.SelectedIndex,
                 (int)numericBlock.Value,
                 checkBoxA.Checked ? "A" : checkBoxB.Checked ? "Б" : checkBoxC.Checked ? "В" : String.Empty,
                 (int)numericOrder.Value);
 
-            equipment.InitValues(tableLayoutPanel1);
+            equipment.InitValues(tableLayoutPanel1, tableLayoutPanel2);
 
             DocWorker dw = new DocWorker(Settings.layoutFileName);
             dw.InitializeTags(equipment);
             dw.InsertItems();
+
+            button.Text = "Создать отчета";
         }
 
         private void textBoxDouble_TextChanged(object sender, EventArgs e)
@@ -63,9 +68,17 @@ namespace VibrationReporter
                 
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
+        private void checkBoxCircuit_CheckedChanged(object sender, EventArgs e)
         {
-
+            foreach(var el in tableLayoutPanel2.Controls)
+            {
+                if(el is TextBox)
+                {
+                    TextBox container = (TextBox)el;
+                    container.ReadOnly = !checkBoxCircuit.Checked;
+                    container.Enabled = checkBoxCircuit.Checked;
+                }
+            }
         }
     }
 }
