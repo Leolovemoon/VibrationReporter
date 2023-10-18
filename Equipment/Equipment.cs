@@ -61,6 +61,6 @@ namespace VibrationReporter.Equipment
                     values.Add($"<{tbContainer.Name}>", $"{tbContainer.Text}");
                 }
             }
-        }
+        }       
     }
 }

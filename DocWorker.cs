@@ -13,7 +13,7 @@ namespace VibrationReporter
     {
         private FileInfo layoutfileInfo;
         public static Dictionary<string, string> tags { get; private set; }
-        public void InitializeTags(Equipment.Equipment equipment)
+        public void InitTags(Equipment.Equipment equipment)
         {
             tags = new Dictionary<string, string>()
             {
@@ -32,7 +32,11 @@ namespace VibrationReporter
                 tags.Add($"{el.Key}", $"{el.Value}");
             }
         }
-
+        public void AddTags(IDictionary<string,string> tagsToAdd)
+        {
+            foreach (var el in tagsToAdd)
+                tags.Add(el.Key, el.Value);
+        }
         public DocWorker(string layoutFileName)
         {
             if (File.Exists(layoutFileName))
@@ -44,7 +48,6 @@ namespace VibrationReporter
                 throw new ArgumentException($"Шаблона \"{layoutFileName}\" не существует");
             }
         }
-
         public void InsertItems()
         {
             Word.Application app = null;

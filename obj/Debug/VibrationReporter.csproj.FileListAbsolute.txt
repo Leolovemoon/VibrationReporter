@@ -1,13 +1,13 @@
+C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\layout.docx
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\VibrationReporter.exe.config
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\VibrationReporter.exe
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\VibrationReporter.pdb
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.AssemblyReference.cache
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.SuggestedBindingRedirects.cache
+C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.ResolveComReference.cache
+C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.FormMain.resources
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.Properties.Resources.resources
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.GenerateResource.cache
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.CoreCompileInputs.cache
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.exe
 C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.pdb
-C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.FormMain.resources
-C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\obj\Debug\VibrationReporter.csproj.ResolveComReference.cache
-C:\Users\leonenko\Source\Repos\VibrationReporter\VibrationReporter\bin\Debug\layout.docx
